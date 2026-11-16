@@ -65,3 +65,7 @@ Workflow запускается при push в ветку `main` или вруч
 ## Загрузка полного архива в GitHub
 
 Репозиторий: https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon. Интеграция GitHub уже подключена. Для передачи исходных изображений и DOCX достаточно один раз загрузить ZIP-файл `ASIDE_PRO_Tattoo_Salon_Project.zip` в корень репозитория через Add file → Upload files и выполнить Commit changes. Workflow распакует его, добавит полный набор файлов отдельным коммитом и запустит публикацию. Подробная инструкция — `docs/github-upload.md`.
+
+## Статус публикации
+
+Источник GitHub Pages: GitHub Actions. Workflow: `.github/workflows/pages.yml`. Публикуемая сборка содержит только HTML, CSS, JavaScript и изображения сайта; документация и тестовые административные файлы остаются в репозитории.
