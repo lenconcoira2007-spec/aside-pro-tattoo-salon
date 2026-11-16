@@ -1,7 +1,7 @@
 {
   "project": "ASIDE PRO Tattoo Salon",
   "baseUrl": "https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/",
-  "testedAt": "2026-11-16T16:48:08.449Z",
+  "testedAt": "2026-11-16T16:51:52.240Z",
   "environment": "GitHub-hosted Ubuntu runner, Playwright Chromium",
   "results": [
     {
@@ -74,14 +74,58 @@
       "name": "Create appointment",
       "status": "Passed",
       "successMessage": "Заявка №1 сохранена в локальной базе этого браузера. Это не подтверждение записи: для реального визита требуется отдельное согласование со студией."
+    },
+    {
+      "name": "Appointment persists and can be read",
+      "status": "Passed",
+      "cardText": "Заявка №1 · Тестовый Клиент\n\nКонтакт: test@example.invalid\n\nУслуга: Татуировка\n\nСоздана: 16.11.2026, 16:51:40\n\nСтатус: new\n\nКомментарий: Автоматическая учебная проверка; запись не является реальной.\n\nУдалить заявку"
+    },
+    {
+      "name": "Delete test appointment",
+      "status": "Passed",
+      "remainingCards": 0
+    },
+    {
+      "name": "IndexedDB database exists",
+      "status": "Passed",
+      "databases": [
+        {
+          "name": "aside-pro-tattoo-db",
+          "version": 1
+        }
+      ]
+    },
+    {
+      "name": "Mobile layout has no horizontal overflow",
+      "status": "Passed",
+      "dimensions": {
+        "innerWidth": 390,
+        "documentWidth": 390,
+        "bodyWidth": 390
+      }
+    },
+    {
+      "name": "Mobile navigation toggles",
+      "status": "Passed",
+      "opened": true,
+      "closed": true
+    },
+    {
+      "name": "Browser console is clean",
+      "status": "Passed",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "name": "No failed network requests",
+      "status": "Passed",
+      "failedRequests": []
     }
   ],
-  "consoleErrors": [
-    "Failed to load resource: the server responded with a status of 404 ()"
-  ],
+  "consoleErrors": [],
   "pageErrors": [],
   "failedRequests": [],
-  "fatalError": "TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.",
+  "fatalError": null,
   "screenshots": [
     "01-homepage.png",
     "02-tattoo-service.png",
@@ -89,6 +133,12 @@
     "04-removal-service.png",
     "05-feedback.png",
     "06-registration.png",
-    "07-test-appointment-saved.png"
+    "07-test-appointment-saved.png",
+    "08-indexeddb-appointment-visible.png",
+    "09-indexeddb-after-delete.png",
+    "10-mobile-homepage.png",
+    "11-github-repository.png",
+    "12-github-commit-history.png",
+    "13-github-actions-success.png"
   ]
 }
