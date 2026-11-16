@@ -92,14 +92,19 @@ async function openPage(page, file) {
     await page.screenshot({ path: path.join(OUT, '08-indexeddb-appointment-visible.png'), fullPage: true });
     record('Appointment persists and can be read', cardText.includes('Тестовый Клиент'), { cardText });
 
-    page.once('dialog', dialog => dialog.accept());
-    await page.locator('#clear-list').click();
+    await page.locator('.demo-item button').first().click();
     await page.waitForFunction(() => {
-      const empty = document.querySelector('.demo-empty');
-      return document.querySelectorAll('.demo-item').length === 0 && empty && empty.textContent.includes('нет заявок');
+      const empty = document.querySelector('#appointments-list .demo-empty');
+      return document.querySelectorAll('#appointments-list .demo-item').length === 0 &&
+        empty && empty.textContent.toLowerCase().includes('нет заявок');
+    });
+    const remainingCards = await page.locator('#appointments-list .demo-item').count();
+    const emptyListText = await page.locator('#appointments-list').innerText();
+    record('Delete test appointment', remainingCards === 0 && emptyListText.toLowerCase().includes('нет заявок'), {
+      remainingCards,
+      emptyListText
     });
     await page.screenshot({ path: path.join(OUT, '09-indexeddb-after-delete.png'), fullPage: true });
-    record('Delete test appointment', true, { remainingCards: await page.locator('.demo-item').count() });
 
     const databases = await page.evaluate(async () => (await indexedDB.databases()).map(database => ({ name: database.name, version: database.version })));
     record('IndexedDB database exists', databases.some(database => database.name === 'aside-pro-tattoo-db'), { databases });
