@@ -28,12 +28,13 @@ function transactionResult(transaction) {
 
 async function seedServices(database) {
   const transaction = database.transaction('services', 'readwrite');
+  const transactionDone = transactionResult(transaction);
   const store = transaction.objectStore('services');
   const count = await requestResult(store.count());
   if (count === 0) {
     for (const service of DEFAULT_SERVICES) store.put(service);
   }
-  await transactionResult(transaction);
+  await transactionDone;
 }
 
 export function openBookingDatabase() {
@@ -95,8 +96,9 @@ export function openBookingDatabase() {
 export async function getServices() {
   const database = await openBookingDatabase();
   const transaction = database.transaction('services', 'readonly');
+  const transactionDone = transactionResult(transaction);
   const result = await requestResult(transaction.objectStore('services').getAll());
-  await transactionResult(transaction);
+  await transactionDone;
   return result.filter((service) => service.active).sort((a, b) => a.sortOrder - b.sortOrder);
 }
 
@@ -157,21 +159,24 @@ export async function createAppointment(input) {
 export async function getAllAppointments() {
   const database = await openBookingDatabase();
   const transaction = database.transaction('appointments', 'readonly');
+  const transactionDone = transactionResult(transaction);
   const result = await requestResult(transaction.objectStore('appointments').getAll());
-  await transactionResult(transaction);
+  await transactionDone;
   return result.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 }
 
 export async function deleteAppointment(id) {
   const database = await openBookingDatabase();
   const transaction = database.transaction('appointments', 'readwrite');
+  const transactionDone = transactionResult(transaction);
   transaction.objectStore('appointments').delete(Number(id));
-  await transactionResult(transaction);
+  await transactionDone;
 }
 
 export async function clearAppointments() {
   const database = await openBookingDatabase();
   const transaction = database.transaction('appointments', 'readwrite');
+  const transactionDone = transactionResult(transaction);
   transaction.objectStore('appointments').clear();
-  await transactionResult(transaction);
+  await transactionDone;
 }
