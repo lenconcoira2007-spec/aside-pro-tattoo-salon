@@ -17,7 +17,13 @@
     .schema-card{margin:0 0 32px}
     .schema-card h2{margin:0 0 8px;font-size:26px}
     .schema-meta{color:var(--muted);margin:0 0 18px}
-    .schema-table{width:100%;border-collapse:collapse;font-size:14px}
+    .schema-table{width:100%;min-width:820px;table-layout:fixed;border-collapse:collapse;font-size:14px}
+    .schema-table th:nth-child(1),.schema-table td:nth-child(1){width:17%}
+    .schema-table th:nth-child(2),.schema-table td:nth-child(2){width:13%}
+    .schema-table th:nth-child(3),.schema-table td:nth-child(3){width:25%}
+    .schema-table th:nth-child(4),.schema-table td:nth-child(4){width:34%}
+    .schema-table th:nth-child(5),.schema-table td:nth-child(5){width:11%}
+    #database-schema{overflow-x:auto}
     .schema-table th,.schema-table td{padding:12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
     .schema-table th{color:#f4f1ed;background:var(--card2)}
     .schema-table code{color:#f2aa9e;white-space:normal}
