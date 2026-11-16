@@ -1,6 +1,6 @@
 # Проектная документация ASIDE PRO Tattoo Salon
 
-**Редакция:** 1.0, подготовительная  
+**Редакция:** 1.1, итоговая  
 **Дата:** 16 ноября 2026 г.
 
 ## 1. Назначение проекта
@@ -79,3 +79,13 @@ IndexedDB работает на стороне браузера. Данные н
 ## Публичная учебная страница BD
 
 После настройки GitHub Pages публикуется также `tests/database-demo.html`. Она предназначена для демонстрации чтения и удаления записей IndexedDB. Страница показывает данные только в текущем браузере и не является серверной административной панелью.
+
+
+## Итоговый результат тестирования
+17 Passed / 0 Failed. Проверены HTTP 200 для шести страниц, загрузка изображений, IndexedDB, обязательные поля формы, создание тестовой заявки, её чтение на странице database-demo, удаление, наличие БД, ширина 390 CSS px, мобильное меню, отсутствие ошибок консоли и сетевых запросов.
+
+## Ссылки
+Репозиторий: https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon
+Публичный сайт: https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/
+Deployment: https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/actions/runs/43911810737
+Browser tests: https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/actions/runs/43911890901
