@@ -3,6 +3,19 @@ name: Import ASIDE PRO bundle and deploy GitHub Pages
 on:
   push:
     branches: [main]
+    paths:
+      - 'index.html'
+      - 'tattoo.html'
+      - 'piercing.html'
+      - 'removing.html'
+      - 'feedback.html'
+      - 'registration.html'
+      - 'css/**'
+      - 'JS/**'
+      - 'images/**'
+      - 'tests/database-demo.html'
+      - 'tests/database-demo.js'
+      - '.github/workflows/pages.yml'
   workflow_dispatch:
 
 permissions:
