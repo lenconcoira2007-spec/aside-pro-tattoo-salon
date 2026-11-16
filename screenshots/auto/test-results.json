@@ -1,7 +1,7 @@
 {
   "project": "ASIDE PRO Tattoo Salon",
   "baseUrl": "https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/",
-  "testedAt": "2026-11-16T18:27:37.937Z",
+  "testedAt": "2026-11-16T18:30:11.522Z",
   "environment": "GitHub-hosted Ubuntu runner, Playwright Chromium",
   "results": [
     {
@@ -83,7 +83,7 @@
     {
       "name": "Appointment persists and can be read",
       "status": "Passed",
-      "cardText": "Заявка №1 · Тестовый Клиент\n\nКонтакт: test@example.invalid\n\nУслуга: Татуировка\n\nСоздана: 16.11.2026, 18:27:29\n\nСтатус: new\n\nКомментарий: Автоматическая проверка; запись не является реальной.\n\nУдалить запись"
+      "cardText": "Заявка №1 · Тестовый Клиент\n\nКонтакт: test@example.invalid\n\nУслуга: Татуировка\n\nСоздана: 16.11.2026, 18:30:01\n\nСтатус: new\n\nКомментарий: Автоматическая проверка; запись не является реальной.\n\nУдалить запись"
     },
     {
       "name": "Delete test appointment",
@@ -115,12 +115,35 @@
       "status": "Passed",
       "opened": true,
       "closed": true
+    },
+    {
+      "name": "GitHub booking form source is visible",
+      "status": "Passed"
+    },
+    {
+      "name": "GitHub IndexedDB source is visible",
+      "status": "Passed"
+    },
+    {
+      "name": "GitHub IndexedDB commit patch is visible",
+      "status": "Passed"
+    },
+    {
+      "name": "Browser console is clean",
+      "status": "Passed",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "name": "No failed network requests",
+      "status": "Passed",
+      "failedRequests": []
     }
   ],
   "consoleErrors": [],
   "pageErrors": [],
   "failedRequests": [],
-  "fatalError": "ReferenceError: document is not defined",
+  "fatalError": null,
   "screenshots": [
     "01-homepage.png",
     "02-tattoo-service.png",
