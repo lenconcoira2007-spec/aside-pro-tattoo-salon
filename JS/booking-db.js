@@ -1,4 +1,4 @@
-// IndexedDB layer for the ASIDE PRO Tattoo Salon educational project.
+// IndexedDB data layer for ASIDE PRO Tattoo Salon booking requests.
 export const DB_NAME = 'aside-pro-tattoo-db';
 export const DB_VERSION = 1;
 
