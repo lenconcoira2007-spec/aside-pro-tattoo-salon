@@ -1,7 +1,7 @@
 {
   "project": "ASIDE PRO Tattoo Salon",
   "baseUrl": "https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/",
-  "testedAt": "2026-11-16T18:13:58.101Z",
+  "testedAt": "2026-11-16T18:18:03.624Z",
   "environment": "GitHub-hosted Ubuntu runner, Playwright Chromium",
   "results": [
     {
@@ -83,13 +83,44 @@
     {
       "name": "Appointment persists and can be read",
       "status": "Passed",
-      "cardText": "Заявка №1 · Тестовый Клиент\n\nКонтакт: test@example.invalid\n\nУслуга: Татуировка\n\nСоздана: 16.11.2026, 18:13:41\n\nСтатус: new\n\nКомментарий: Автоматическая проверка; запись не является реальной.\n\nУдалить запись"
+      "cardText": "Заявка №1 · Тестовый Клиент\n\nКонтакт: test@example.invalid\n\nУслуга: Татуировка\n\nСоздана: 16.11.2026, 18:17:24\n\nСтатус: new\n\nКомментарий: Автоматическая проверка; запись не является реальной.\n\nУдалить запись"
+    },
+    {
+      "name": "Delete test appointment",
+      "status": "Passed",
+      "remainingCards": 0,
+      "emptyListText": "В базе пока нет заявок."
+    },
+    {
+      "name": "IndexedDB database exists",
+      "status": "Passed",
+      "databases": [
+        {
+          "name": "aside-pro-tattoo-db",
+          "version": 1
+        }
+      ]
+    },
+    {
+      "name": "Mobile layout has no horizontal overflow",
+      "status": "Passed",
+      "dimensions": {
+        "innerWidth": 390,
+        "documentWidth": 390,
+        "bodyWidth": 390
+      }
+    },
+    {
+      "name": "Mobile navigation toggles",
+      "status": "Passed",
+      "opened": true,
+      "closed": true
     }
   ],
   "consoleErrors": [],
   "pageErrors": [],
   "failedRequests": [],
-  "fatalError": "TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.",
+  "fatalError": "TimeoutError: page.waitForSelector: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('td.blob-code') to be visible\n",
   "screenshots": [
     "01-homepage.png",
     "02-tattoo-service.png",
