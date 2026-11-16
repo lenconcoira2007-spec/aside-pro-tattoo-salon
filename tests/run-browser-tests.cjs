@@ -131,31 +131,31 @@ async function openPage(page, file) {
       record('Mobile navigation toggles', false, { reason: 'menu button not found' });
     }
 
-    // Capture genuine GitHub UI pages for repository, source code and commit-diff evidence.
+    // Capture real source files and commit patch directly from the public GitHub repository.
     await page.setViewportSize({ width: 1440, height: 1000 });
     const githubPage = await context.newPage();
 
     await githubPage.goto(REPO, { waitUntil: 'domcontentloaded', timeout: 60000 });
-    await githubPage.waitForTimeout(2000);
+    await githubPage.waitForTimeout(1500);
     await githubPage.screenshot({ path: path.join(OUT, '11-github-repository.png'), fullPage: true });
 
     await githubPage.goto(REPO + '/commits/main', { waitUntil: 'domcontentloaded', timeout: 60000 });
-    await githubPage.waitForTimeout(1500);
+    await githubPage.waitForTimeout(1200);
     await githubPage.screenshot({ path: path.join(OUT, '12-github-commit-history.png'), fullPage: true });
 
-    await githubPage.goto(REPO + '/blob/main/JS/booking.js', { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await githubPage.goto('https://raw.githubusercontent.com/lenconcoira2007-spec/aside-pro-tattoo-salon/main/JS/booking.js', { waitUntil: 'domcontentloaded', timeout: 60000 });
     await githubPage.waitForFunction(() => document.body.innerText.includes('createAppointment'), { timeout: 30000 });
-    record('GitHub booking form source is visible', true, { pageTitle: await githubPage.title() });
+    record('GitHub booking form source is visible', document.body.innerText.includes('createAppointment'));
     await githubPage.screenshot({ path: path.join(OUT, '15-github-booking-form-code.png'), fullPage: true });
 
-    await githubPage.goto(REPO + '/blob/main/JS/booking-db.js', { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await githubPage.goto('https://raw.githubusercontent.com/lenconcoira2007-spec/aside-pro-tattoo-salon/main/JS/booking-db.js', { waitUntil: 'domcontentloaded', timeout: 60000 });
     await githubPage.waitForFunction(() => document.body.innerText.includes('openBookingDatabase'), { timeout: 30000 });
-    record('GitHub IndexedDB source is visible', true, { pageTitle: await githubPage.title() });
+    record('GitHub IndexedDB source is visible', document.body.innerText.includes('openBookingDatabase'));
     await githubPage.screenshot({ path: path.join(OUT, '16-github-indexeddb-code.png'), fullPage: true });
 
-    await githubPage.goto(REPO + '/commit/c12a2e0635785a79c4e8f440fd43462751c57d98', { waitUntil: 'domcontentloaded', timeout: 60000 });
-    await githubPage.waitForFunction(() => document.body.innerText.includes('await IndexedDB transaction completion reliably'), { timeout: 30000 });
-    record('GitHub IndexedDB commit diff is visible', true, { pageTitle: await githubPage.title() });
+    await githubPage.goto(REPO + '/commit/c12a2e0635785a79c4e8f440fd43462751c57d98.patch', { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await githubPage.waitForFunction(() => document.body.innerText.includes('transactionResult'), { timeout: 30000 });
+    record('GitHub IndexedDB commit patch is visible', document.body.innerText.includes('transactionResult'));
     await githubPage.screenshot({ path: path.join(OUT, '17-github-indexeddb-commit-diff.png'), fullPage: true });
 
     if (DEPLOY_RUN_ID) {
