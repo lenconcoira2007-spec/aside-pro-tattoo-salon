@@ -16,6 +16,7 @@ on:
       - 'tests/database-demo.html'
       - 'tests/database-demo.js'
       - '.github/workflows/pages.yml'
+      - 'aside_pro_tattoo_salon_bundle.zip'
   workflow_dispatch:
 
 permissions:
