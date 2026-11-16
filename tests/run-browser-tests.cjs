@@ -15,7 +15,6 @@ const failedRequests = [];
 
 function record(name, passed, details = {}) {
   results.push({ name, status: passed ? 'Passed' : 'Failed', ...details });
-  if (!passed) throw new Error(name + ' failed: ' + JSON.stringify(details));
 }
 
 async function openPage(page, file) {
@@ -26,6 +25,7 @@ async function openPage(page, file) {
 
 (async () => {
   const browser = await chromium.launch({ headless: true });
+  let fatalError = null;
   const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 1 });
   const page = await context.newPage();
   page.setDefaultTimeout(15000);
@@ -136,6 +136,9 @@ async function openPage(page, file) {
 
     record('Browser console is clean', consoleErrors.length === 0 && pageErrors.length === 0, { consoleErrors, pageErrors });
     record('No failed network requests', failedRequests.length === 0, { failedRequests });
+  } catch (error) {
+    fatalError = String(error);
+    console.error(error);
   } finally {
     await browser.close();
   }
@@ -149,6 +152,7 @@ async function openPage(page, file) {
     consoleErrors,
     pageErrors,
     failedRequests,
+    fatalError,
     screenshots: fs.readdirSync(OUT).filter(file => file.endsWith('.png')).sort()
   };
   fs.writeFileSync(path.join(OUT, 'test-results.json'), JSON.stringify(report, null, 2), 'utf8');
@@ -175,7 +179,20 @@ async function openPage(page, file) {
   const verificationPath = path.join(process.cwd(), 'docs', 'verification-results.md');
   fs.writeFileSync(verificationPath, summary, 'utf8');
 
-  if (failed > 0) process.exitCode = 1;
+  const evidenceRows = report.screenshots.map(file => '| ' + file + ' | screenshots/auto/' + file + ' | Captured in GitHub-hosted Chromium |');
+  const evidence = [
+    '# Реестр автоматических скриншотов-подтверждений',
+    '',
+    'Снимки получены в реальном браузере Chromium на GitHub-hosted Ubuntu runner при проверке опубликованного сайта. Они не являются снимками локального Windows-экрана.',
+    '',
+    '| Файл | Путь | Происхождение |',
+    '|---|---|---|',
+    ...evidenceRows,
+    ''
+  ].join('\\n');
+  fs.writeFileSync(path.join(process.cwd(), 'docs', 'evidence-register.md'), evidence, 'utf8');
+
+  if (failed > 0 || fatalError) process.exitCode = 1;
 })().catch(error => {
   console.error(error);
   process.exit(1);
