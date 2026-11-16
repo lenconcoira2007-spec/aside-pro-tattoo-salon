@@ -2,24 +2,24 @@
 
 Репозиторий: https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon
 
-Интеграция GitHub установлена для аккаунта lenconcoira2007-spec; права чтения и записи подтверждены. Markdown-документация и текстовые исходники уже добавлены напрямую.
+GitHub App подключено к аккаунту `lenconcoira2007-spec`; у интеграции подтверждены права чтения и записи. Первые Markdown-документы и текстовые файлы уже добавлены напрямую.
 
 ## Один ручной шаг для переноса всех бинарных файлов
 
-1. Скачайте архив ASIDE_PRO_Tattoo_Salon_Project.zip из этого чата.
-2. Откройте репозиторий по ссылке выше.
-3. Нажмите Add file → Upload files.
-4. Перетащите ZIP-архив в корень репозитория. Не распаковывайте архив в браузере.
-5. Внизу страницы оставьте commit в ветку main и нажмите Commit changes.
-6. Откройте вкладку Actions и проверьте workflow Import ASIDE PRO bundle and deploy GitHub Pages.
+1. Скачать архив `ASIDE_PRO_Tattoo_Salon_Project.zip`, подготовленный в этом чате.
+2. Открыть репозиторий по ссылке выше.
+3. Нажать **Add file → Upload files**.
+4. Перетащить ZIP-архив в корень репозитория (не распаковывать его в браузере).
+5. Внизу страницы оставить коммит в ветку `main` и нажать **Commit changes**.
+6. Открыть вкладку **Actions** и проверить workflow **Import ASIDE PRO bundle and deploy GitHub Pages**.
 
-Workflow распакует ZIP, добавит папки и файлы в репозиторий, удалит временный ZIP, создаст отдельный коммит от github-actions[bot] и опубликует сайт. Workflow использует permissions contents: write, pages: write и id-token: write.
+Workflow распакует ZIP, добавит содержащиеся в нём папки и файлы в репозиторий, удалит временный ZIP из корня, создаст коммит от `github-actions[bot]` и развернёт публичную часть сайта. Для этого workflow запрашивает `contents: write`, `pages: write` и `id-token: write`.
 
-## После импорта
+## После успешного импорта
 
-- Проверьте, что появились index.html, css/, JS/, images/, database/, docs/, tests/ и screenshots/.
-- Проверьте, что в docs/ есть ТЗ и документация в DOCX и Markdown.
-- Убедитесь, что GitHub Pages использует GitHub Actions как источник публикации.
-- Откройте URL Pages, выведенный в Actions.
+- Проверить, что в корне появились `index.html`, `css/`, `JS/`, `images/`, `database/`, `docs/`, `tests/`, `screenshots/`.
+- Убедиться, что внутри `docs/` присутствуют ТЗ и проектная документация в формате DOCX и Markdown.
+- Открыть **Settings → Pages** и убедиться, что источником публикации выбран GitHub Actions (workflow также выполняет настройку через actions/configure-pages).
+- Проверить URL GitHub Pages, выведенный в Actions.
 
-Не отправляйте пароли, токены или recovery codes в чат и не добавляйте секреты в репозиторий.
+Не загружайте пароль, Personal Access Token или другие секреты в репозиторий.

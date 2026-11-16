@@ -1,20 +1,20 @@
 erDiagram
-  SERVICES ||--o{ APPOINTMENTS : selected_for
-  SERVICES {
-    string id PK
-    string name
-    string priceLabel
-    boolean active
-    number sortOrder
-  }
-  APPOINTMENTS {
-    number id PK
-    string clientName
-    string contact
-    string serviceId FK
-    string comment
-    string preferredDate
-    string preferredTime
-    string createdAt
-    string status
-  }
+    SERVICES ||--o{ APPOINTMENTS : selected_for
+    SERVICES {
+        string id PK
+        string name
+        string priceLabel
+        boolean active
+        number sortOrder
+    }
+    APPOINTMENTS {
+        number id PK
+        string clientName
+        string contact
+        string serviceId "logical reference to SERVICES.id"
+        string comment
+        string preferredDate
+        string preferredTime
+        string createdAt
+        string status
+    }
