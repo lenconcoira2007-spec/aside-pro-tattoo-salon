@@ -7,13 +7,25 @@ on:
       - 'tests/run-browser-tests.cjs'
       - '.github/workflows/browser-tests.yml'
       - 'docs/**'
+      - 'JS/booking-db.js'
+      - 'registration.html'
+      - 'tests/**'
+  workflow_run:
+    workflows: ["Import ASIDE PRO bundle and deploy GitHub Pages"]
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
+
+concurrency:
+  group: aside-pro-browser-tests-${{ github.event.workflow_run.head_sha || github.sha }}
+  cancel-in-progress: true
 
 permissions:
   contents: write
 
 jobs:
   browser-tests:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out current main
