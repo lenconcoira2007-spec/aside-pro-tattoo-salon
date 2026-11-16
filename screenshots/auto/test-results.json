@@ -1,0 +1,94 @@
+{
+  "project": "ASIDE PRO Tattoo Salon",
+  "baseUrl": "https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/",
+  "testedAt": "2026-11-16T16:46:01.052Z",
+  "environment": "GitHub-hosted Ubuntu runner, Playwright Chromium",
+  "results": [
+    {
+      "name": "HTTP index.html",
+      "status": "Passed",
+      "httpStatus": 200
+    },
+    {
+      "name": "Homepage images load",
+      "status": "Passed",
+      "brokenImages": []
+    },
+    {
+      "name": "HTTP tattoo.html",
+      "status": "Passed",
+      "httpStatus": 200
+    },
+    {
+      "name": "HTTP piercing.html",
+      "status": "Passed",
+      "httpStatus": 200
+    },
+    {
+      "name": "HTTP removing.html",
+      "status": "Passed",
+      "httpStatus": 200
+    },
+    {
+      "name": "HTTP feedback.html",
+      "status": "Passed",
+      "httpStatus": 200
+    },
+    {
+      "name": "HTTP registration.html",
+      "status": "Passed",
+      "httpStatus": 200
+    },
+    {
+      "name": "Services loaded from IndexedDB",
+      "status": "Passed",
+      "options": [
+        {
+          "value": "",
+          "text": "Выберите услугу"
+        },
+        {
+          "value": "tattoo",
+          "text": "Татуировка — от 40 €"
+        },
+        {
+          "value": "piercing",
+          "text": "Пирсинг — от 10 €"
+        },
+        {
+          "value": "removal",
+          "text": "Лазерное удаление — от 20 €"
+        },
+        {
+          "value": "consultation",
+          "text": "Консультация — по согласованию"
+        }
+      ]
+    },
+    {
+      "name": "Required-field validation",
+      "status": "Passed",
+      "emptyFormValidity": false
+    },
+    {
+      "name": "Create appointment",
+      "status": "Passed",
+      "successMessage": "Заявка №1 сохранена в локальной базе этого браузера. Это не подтверждение записи: для реального визита требуется отдельное согласование со студией."
+    }
+  ],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 ()"
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "fatalError": "TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.",
+  "screenshots": [
+    "01-homepage.png",
+    "02-tattoo-service.png",
+    "03-piercing-service.png",
+    "04-removal-service.png",
+    "05-feedback.png",
+    "06-registration.png",
+    "07-test-appointment-saved.png"
+  ]
+}
