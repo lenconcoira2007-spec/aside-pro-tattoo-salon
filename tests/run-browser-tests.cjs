@@ -146,12 +146,12 @@ async function openPage(page, file) {
     await githubPage.goto('https://raw.githubusercontent.com/lenconcoira2007-spec/aside-pro-tattoo-salon/main/JS/booking.js', { waitUntil: 'domcontentloaded', timeout: 60000 });
     await githubPage.waitForFunction(() => document.body.innerText.includes('createAppointment'), { timeout: 30000 });
     record('GitHub booking form source is visible', document.body.innerText.includes('createAppointment'));
-    await githubPage.screenshot({ path: path.join(OUT, '15-github-booking-form-code.png'), fullPage: true });
+    await githubPage.screenshot({ path: path.join(OUT, '15-github-booking-form-code.png'), fullPage: false });
 
     await githubPage.goto('https://raw.githubusercontent.com/lenconcoira2007-spec/aside-pro-tattoo-salon/main/JS/booking-db.js', { waitUntil: 'domcontentloaded', timeout: 60000 });
     await githubPage.waitForFunction(() => document.body.innerText.includes('openBookingDatabase'), { timeout: 30000 });
     record('GitHub IndexedDB source is visible', document.body.innerText.includes('openBookingDatabase'));
-    await githubPage.screenshot({ path: path.join(OUT, '16-github-indexeddb-code.png'), fullPage: true });
+    await githubPage.screenshot({ path: path.join(OUT, '16-github-indexeddb-code.png'), fullPage: false });
 
     await githubPage.goto(REPO + '/commit/c12a2e0635785a79c4e8f440fd43462751c57d98.patch', { waitUntil: 'domcontentloaded', timeout: 60000 });
     await githubPage.waitForFunction(() => document.body.innerText.includes('transactionResult'), { timeout: 30000 });
