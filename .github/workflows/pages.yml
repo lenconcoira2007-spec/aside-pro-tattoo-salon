@@ -57,9 +57,12 @@ jobs:
           mkdir -p _site
           cp index.html tattoo.html piercing.html removing.html feedback.html registration.html _site/
           cp -R css JS images _site/
+          mkdir -p _site/tests
+          cp tests/database-demo.html tests/database-demo.js _site/tests/
           test -f _site/index.html
           test -f _site/registration.html
           test -f _site/images/tatu.svg
+          test -f _site/tests/database-demo.html
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
