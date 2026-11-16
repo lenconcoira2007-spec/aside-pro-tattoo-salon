@@ -1,0 +1,59 @@
+name: Browser tests and screenshot evidence
+
+on:
+  workflow_run:
+    workflows: ["Import ASIDE PRO bundle and deploy GitHub Pages"]
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  browser-tests:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out current main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install --save-dev playwright
+          npx playwright install --with-deps chromium
+
+      - name: Run browser tests against the published website
+        run: node tests/run-browser-tests.cjs
+        env:
+          SITE_BASE_URL: https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/
+          REPOSITORY_URL: https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon
+          DEPLOY_RUN_ID: ${{ github.event.workflow_run.id }}
+
+      - name: Commit real browser screenshots and test report
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add screenshots/auto docs/verification-results.md docs/evidence-register.md
+          if ! git diff --cached --quiet; then
+            git commit -m "test: add automated browser evidence"
+            git push origin HEAD:main
+          fi
+
+      - name: Upload screenshots as workflow artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aside-pro-browser-evidence
+          path: screenshots/auto/
+          if-no-files-found: warn
+          retention-days: 30
