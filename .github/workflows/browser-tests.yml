@@ -1,15 +1,6 @@
 name: Browser tests and screenshot evidence
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'tests/run-browser-tests.cjs'
-      - '.github/workflows/browser-tests.yml'
-      - 'docs/**'
-      - 'JS/booking-db.js'
-      - 'registration.html'
-      - 'tests/**'
   workflow_run:
     workflows: ["Import ASIDE PRO bundle and deploy GitHub Pages"]
     types: [completed]
@@ -25,7 +16,7 @@ permissions:
 
 jobs:
   browser-tests:
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out current main
