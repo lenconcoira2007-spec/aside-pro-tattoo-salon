@@ -1,7 +1,7 @@
 {
   "project": "ASIDE PRO Tattoo Salon",
   "baseUrl": "https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/",
-  "testedAt": "2026-11-16T18:18:03.624Z",
+  "testedAt": "2026-11-16T18:22:05.463Z",
   "environment": "GitHub-hosted Ubuntu runner, Playwright Chromium",
   "results": [
     {
@@ -83,7 +83,7 @@
     {
       "name": "Appointment persists and can be read",
       "status": "Passed",
-      "cardText": "Заявка №1 · Тестовый Клиент\n\nКонтакт: test@example.invalid\n\nУслуга: Татуировка\n\nСоздана: 16.11.2026, 18:17:24\n\nСтатус: new\n\nКомментарий: Автоматическая проверка; запись не является реальной.\n\nУдалить запись"
+      "cardText": "Заявка №1 · Тестовый Клиент\n\nКонтакт: test@example.invalid\n\nУслуга: Татуировка\n\nСоздана: 16.11.2026, 18:21:51\n\nСтатус: new\n\nКомментарий: Автоматическая проверка; запись не является реальной.\n\nУдалить запись"
     },
     {
       "name": "Delete test appointment",
@@ -115,12 +115,38 @@
       "status": "Passed",
       "opened": true,
       "closed": true
+    },
+    {
+      "name": "GitHub booking form source is visible",
+      "status": "Passed",
+      "pageTitle": "aside-pro-tattoo-salon/JS/booking.js at main · lenconcoira2007-spec/aside-pro-tattoo-salon · GitHub"
+    },
+    {
+      "name": "GitHub IndexedDB source is visible",
+      "status": "Passed",
+      "pageTitle": "aside-pro-tattoo-salon/JS/booking-db.js at main · lenconcoira2007-spec/aside-pro-tattoo-salon · GitHub"
+    },
+    {
+      "name": "GitHub IndexedDB commit diff is visible",
+      "status": "Passed",
+      "pageTitle": "fix: await IndexedDB transaction completion reliably · lenconcoira2007-spec/aside-pro-tattoo-salon@c12a2e0 · GitHub"
+    },
+    {
+      "name": "Browser console is clean",
+      "status": "Passed",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "name": "No failed network requests",
+      "status": "Passed",
+      "failedRequests": []
     }
   ],
   "consoleErrors": [],
   "pageErrors": [],
   "failedRequests": [],
-  "fatalError": "TimeoutError: page.waitForSelector: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('td.blob-code') to be visible\n",
+  "fatalError": null,
   "screenshots": [
     "01-homepage.png",
     "02-tattoo-service.png",
@@ -135,6 +161,9 @@
     "11-github-repository.png",
     "12-github-commit-history.png",
     "13-github-actions-success.png",
-    "14-indexeddb-schema.png"
+    "14-indexeddb-schema.png",
+    "15-github-booking-form-code.png",
+    "16-github-indexeddb-code.png",
+    "17-github-indexeddb-commit-diff.png"
   ]
 }
