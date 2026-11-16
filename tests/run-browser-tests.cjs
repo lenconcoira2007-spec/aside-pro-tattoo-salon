@@ -69,7 +69,7 @@ async function openPage(page, file) {
     await page.locator('#name').fill('Тестовый Клиент');
     await page.locator('#phone').fill('test@example.invalid');
     await page.locator('#service').selectOption('tattoo');
-    await page.locator('#text').fill('Автоматическая учебная проверка; запись не является реальной.');
+    await page.locator('#text').fill('Автоматическая проверка; запись не является реальной.');
     await page.locator('#submit-request').click();
     await page.waitForFunction(() => {
       const element = document.querySelector('#form-status');
@@ -82,6 +82,12 @@ async function openPage(page, file) {
     // Check persistence in a separate page load, then delete the test row.
     await page.goto(new URL('tests/database-demo.html', SITE).toString(), { waitUntil: 'networkidle' });
     await page.waitForFunction(() => document.querySelectorAll('.demo-item').length === 1);
+    await page.waitForFunction(() => document.querySelectorAll('#database-schema tbody tr').length === 2);
+    const schemaText = await page.locator('#database-schema').innerText();
+    const schemaVerified = schemaText.includes('services') && schemaText.includes('appointments') &&
+      schemaText.includes('byService') && schemaText.includes('byCreatedAt') && schemaText.includes('byStatus');
+    record('IndexedDB stores and indexes are visible', schemaVerified, { schemaText });
+    await page.screenshot({ path: path.join(OUT, '14-indexeddb-schema.png'), fullPage: true });
     const cardText = await page.locator('.demo-item').first().innerText();
     await page.screenshot({ path: path.join(OUT, '08-indexeddb-appointment-visible.png'), fullPage: true });
     record('Appointment persists and can be read', cardText.includes('Тестовый Клиент'), { cardText });
@@ -120,19 +126,36 @@ async function openPage(page, file) {
       record('Mobile navigation toggles', false, { reason: 'menu button not found' });
     }
 
-    // Capture genuine GitHub UI pages for repository/process evidence.
+    // Capture genuine GitHub UI pages for repository, source code and commit-diff evidence.
     await page.setViewportSize({ width: 1440, height: 1000 });
-    await page.goto(REPO, { waitUntil: 'domcontentloaded', timeout: 60000 });
-    await page.waitForTimeout(2500);
-    await page.screenshot({ path: path.join(OUT, '11-github-repository.png'), fullPage: true });
-    await page.goto(REPO + '/commits/main', { waitUntil: 'domcontentloaded', timeout: 60000 });
-    await page.waitForTimeout(2000);
-    await page.screenshot({ path: path.join(OUT, '12-github-commit-history.png'), fullPage: true });
+    const githubPage = await context.newPage();
+
+    await githubPage.goto(REPO, { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await githubPage.waitForTimeout(2000);
+    await githubPage.screenshot({ path: path.join(OUT, '11-github-repository.png'), fullPage: true });
+
+    await githubPage.goto(REPO + '/commits/main', { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await githubPage.waitForTimeout(1500);
+    await githubPage.screenshot({ path: path.join(OUT, '12-github-commit-history.png'), fullPage: true });
+
+    await githubPage.goto(REPO + '/blob/main/JS/booking.js', { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await githubPage.waitForSelector('td.blob-code', { timeout: 30000 });
+    await githubPage.screenshot({ path: path.join(OUT, '15-github-booking-form-code.png'), fullPage: true });
+
+    await githubPage.goto(REPO + '/blob/main/JS/booking-db.js', { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await githubPage.waitForSelector('td.blob-code', { timeout: 30000 });
+    await githubPage.screenshot({ path: path.join(OUT, '16-github-indexeddb-code.png'), fullPage: true });
+
+    await githubPage.goto(REPO + '/commit/c12a2e0635785a79c4e8f440fd43462751c57d98', { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await githubPage.waitForSelector('td.blob-code', { timeout: 30000 });
+    await githubPage.screenshot({ path: path.join(OUT, '17-github-indexeddb-commit-diff.png'), fullPage: true });
+
     if (DEPLOY_RUN_ID) {
-      await page.goto(REPO + '/actions/runs/' + DEPLOY_RUN_ID, { waitUntil: 'domcontentloaded', timeout: 60000 });
-      await page.waitForTimeout(2000);
-      await page.screenshot({ path: path.join(OUT, '13-github-actions-success.png'), fullPage: true });
+      await githubPage.goto(REPO + '/actions/runs/' + DEPLOY_RUN_ID, { waitUntil: 'domcontentloaded', timeout: 60000 });
+      await githubPage.waitForTimeout(1500);
+      await githubPage.screenshot({ path: path.join(OUT, '13-github-actions-success.png'), fullPage: true });
     }
+    await githubPage.close();
 
     record('Browser console is clean', consoleErrors.length === 0 && pageErrors.length === 0, { consoleErrors, pageErrors });
     record('No failed network requests', failedRequests.length === 0, { failedRequests });
