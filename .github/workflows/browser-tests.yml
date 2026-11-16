@@ -41,7 +41,7 @@ jobs:
         env:
           SITE_BASE_URL: https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/
           REPOSITORY_URL: https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon
-          DEPLOY_RUN_ID: 43909583038
+          DEPLOY_RUN_ID: ${{ github.event.workflow_run.id || github.run_id }}
 
       - name: Commit real browser screenshots and test report
         if: always()

@@ -3,17 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Демонстрация IndexedDB — ASIDE PRO</title>
+  <title>Заявки и структура базы данных — ASIDE PRO Tattoo Salon</title>
   <link rel="stylesheet" href="../css/style.css">
   <style>
     .demo-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
     .demo-list{display:grid;gap:14px}
-    .demo-item{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+    .demo-item,.schema-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
     .demo-item h3{margin:0 0 8px}
     .demo-item p{margin:5px 0;color:var(--muted);overflow-wrap:anywhere}
     .demo-item button{margin-top:12px}
     .demo-empty{padding:24px;border:1px dashed var(--line);border-radius:16px;color:var(--muted)}
-    .demo-note{margin:0 0 22px;padding:16px;border:1px solid #8d463f;border-radius:12px;background:#2a1918}
+    .demo-note{margin:0 0 28px;padding:16px;border:1px solid #8d463f;border-radius:12px;background:#2a1918}
+    .schema-card{margin:0 0 32px}
+    .schema-card h2{margin:0 0 8px;font-size:26px}
+    .schema-meta{color:var(--muted);margin:0 0 18px}
+    .schema-table{width:100%;border-collapse:collapse;font-size:14px}
+    .schema-table th,.schema-table td{padding:12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+    .schema-table th{color:#f4f1ed;background:var(--card2)}
+    .schema-table code{color:#f2aa9e;white-space:normal}
+    @media(max-width:720px){.schema-table{font-size:12px}.schema-table th,.schema-table td{padding:8px}}
   </style>
 </head>
 <body>
@@ -22,18 +30,27 @@
     <a class="btn secondary" href="../registration.html">К форме заявки</a>
   </div></header>
   <main class="section"><div class="container">
-    <div class="eyebrow">Техническая демонстрация</div>
-    <h1 class="section-title">Локальные заявки IndexedDB</h1>
-    <p class="section-lead">Страница предназначена для учебной проверки операций чтения и удаления записей в браузерном хранилище.</p>
-    <p class="demo-note">Внимание: это не административная панель. Она показывает только записи в текущем браузере и на текущем устройстве. Не вводите реальные персональные данные.</p>
+    <div class="eyebrow">Работа с заявками</div>
+    <h1 class="section-title">База данных и заявки</h1>
+    <p class="section-lead">Структура IndexedDB и текущие записи, сохранённые в браузере, отображаются ниже.</p>
+    <p class="demo-note">Данные хранятся только в текущем браузере и на этом устройстве. Они не отправляются сотрудникам салона, не синхронизируются с другими устройствами и не подтверждают запись на конкретное время. Не вводите реальные персональные данные.</p>
+
+    <section class="schema-card" aria-labelledby="schema-title">
+      <h2 id="schema-title">Структура базы данных</h2>
+      <p class="schema-meta" id="database-meta">Получение фактической структуры IndexedDB…</p>
+      <div id="database-schema" class="demo-empty">Загрузка хранилищ и индексов…</div>
+    </section>
+
+    <div class="eyebrow">Текущие записи</div>
+    <h2 class="section-title" style="font-size:32px;margin-bottom:18px">Заявки</h2>
     <div class="demo-actions">
       <button class="btn" id="refresh-list" type="button">Обновить список</button>
-      <button class="btn secondary" id="clear-list" type="button">Удалить все тестовые заявки</button>
+      <button class="btn secondary" id="clear-list" type="button">Удалить все записи</button>
     </div>
     <p class="form-status" id="demo-status" role="status" aria-live="polite" hidden></p>
     <div class="demo-list" id="appointments-list"><div class="demo-empty">Загрузка данных…</div></div>
   </div></main>
-  <footer class="footer"><div class="container footer-inner"><span>ASIDE PRO Tattoo Salon · Учебный проект</span><a href="../index.html">На главную</a></div></footer>
+  <footer class="footer"><div class="container footer-inner"><span>ASIDE PRO Tattoo Salon</span><a href="../index.html">На главную</a></div></footer>
   <script type="module" src="database-demo.js"></script>
 </body>
 </html>
