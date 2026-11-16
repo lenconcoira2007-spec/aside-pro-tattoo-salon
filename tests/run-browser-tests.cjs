@@ -144,15 +144,18 @@ async function openPage(page, file) {
     await githubPage.screenshot({ path: path.join(OUT, '12-github-commit-history.png'), fullPage: true });
 
     await githubPage.goto(REPO + '/blob/main/JS/booking.js', { waitUntil: 'domcontentloaded', timeout: 60000 });
-    await githubPage.waitForSelector('td.blob-code', { timeout: 30000 });
+    await githubPage.waitForFunction(() => document.body.innerText.includes('createAppointment'), { timeout: 30000 });
+    record('GitHub booking form source is visible', true, { pageTitle: await githubPage.title() });
     await githubPage.screenshot({ path: path.join(OUT, '15-github-booking-form-code.png'), fullPage: true });
 
     await githubPage.goto(REPO + '/blob/main/JS/booking-db.js', { waitUntil: 'domcontentloaded', timeout: 60000 });
-    await githubPage.waitForSelector('td.blob-code', { timeout: 30000 });
+    await githubPage.waitForFunction(() => document.body.innerText.includes('openBookingDatabase'), { timeout: 30000 });
+    record('GitHub IndexedDB source is visible', true, { pageTitle: await githubPage.title() });
     await githubPage.screenshot({ path: path.join(OUT, '16-github-indexeddb-code.png'), fullPage: true });
 
     await githubPage.goto(REPO + '/commit/c12a2e0635785a79c4e8f440fd43462751c57d98', { waitUntil: 'domcontentloaded', timeout: 60000 });
-    await githubPage.waitForSelector('td.blob-code', { timeout: 30000 });
+    await githubPage.waitForFunction(() => document.body.innerText.includes('await IndexedDB transaction completion reliably'), { timeout: 30000 });
+    record('GitHub IndexedDB commit diff is visible', true, { pageTitle: await githubPage.title() });
     await githubPage.screenshot({ path: path.join(OUT, '17-github-indexeddb-commit-diff.png'), fullPage: true });
 
     if (DEPLOY_RUN_ID) {
