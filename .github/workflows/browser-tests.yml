@@ -1,17 +1,19 @@
 name: Browser tests and screenshot evidence
 
 on:
-  workflow_run:
-    workflows: ["Import ASIDE PRO bundle and deploy GitHub Pages"]
-    types: [completed]
+  push:
     branches: [main]
+    paths:
+      - 'tests/run-browser-tests.cjs'
+      - '.github/workflows/browser-tests.yml'
+      - 'docs/**'
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
   browser-tests:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out current main
@@ -36,7 +38,7 @@ jobs:
         env:
           SITE_BASE_URL: https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/
           REPOSITORY_URL: https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon
-          DEPLOY_RUN_ID: ${{ github.event.workflow_run.id }}
+          DEPLOY_RUN_ID: 43909583038
 
       - name: Commit real browser screenshots and test report
         if: always()
