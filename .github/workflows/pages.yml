@@ -1,12 +1,14 @@
-name: Deploy ASIDE PRO to GitHub Pages
+name: Import ASIDE PRO bundle and deploy GitHub Pages
 
 on:
   push:
     branches: [main]
+    paths:
+      - 'ASIDE_PRO_Tattoo_Salon_Project.zip'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -21,8 +23,32 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Import full project from uploaded ZIP
+        shell: bash
+        run: |
+          if [ -f "ASIDE_PRO_Tattoo_Salon_Project.zip" ]; then
+            mkdir -p /tmp/aside-pro-import
+            unzip -q "ASIDE_PRO_Tattoo_Salon_Project.zip" -d /tmp/aside-pro-import
+            project_dir="$(find /tmp/aside-pro-import -mindepth 1 -maxdepth 1 -type d -name 'ASIDE_PRO_Tattoo_Salon_Project' -print -quit)"
+            test -n "$project_dir"
+            cp -a "$project_dir/." .
+            rm -f "ASIDE_PRO_Tattoo_Salon_Project.zip"
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            if ! git diff --cached --quiet; then
+              git commit -m "chore: import complete ASIDE PRO project bundle"
+              git push origin HEAD:main
+            fi
+          else
+            echo "No project ZIP found; continuing with the current source tree."
+          fi
+
       - name: Prepare public website files
         shell: bash
         run: |
@@ -31,12 +57,16 @@ jobs:
           cp -R css JS images _site/
           test -f _site/index.html
           test -f _site/registration.html
-      - name: Configure Pages
+          test -f _site/images/tatu.svg
+
+      - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-      - name: Upload artifact
+
+      - name: Upload website artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
-      - name: Deploy
+
+      - name: Publish website
         id: deployment
         uses: actions/deploy-pages@v4
