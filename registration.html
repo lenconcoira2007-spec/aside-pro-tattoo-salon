@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Оставьте заявку на консультацию в ASIDE PRO Tattoo Salon.">
+  <title>Запись — ASIDE PRO Tattoo Salon</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header"><div class="container nav-wrap">
+    <a class="brand" href="index.html"><img src="images/tatu.svg" alt="Логотип ASIDE PRO Tattoo Salon"><div>ASIDE PRO <span>Tattoo Salon</span></div></a>
+    <button class="menu-btn" type="button" aria-label="Открыть меню" aria-expanded="false">☰</button>
+    <nav class="nav" aria-label="Основная навигация"><a href="index.html#services">Услуги</a><a href="index.html#works">Работы</a><a href="feedback.html">Отзывы</a><a href="index.html#contacts">Контакты</a></nav>
+  </div></header>
+  <main>
+    <section class="page-hero"><div class="container"><div class="eyebrow">Онлайн-заявка</div><h1>Расскажи, что хочешь сделать</h1><p>Оставь контакт, выбери услугу и кратко опиши идею. В учебной версии заявка сохраняется в локальное хранилище этого браузера.</p></div></section>
+    <section class="section"><div class="container form-wrap">
+      <form class="form-card" id="booking-form">
+        <div class="field"><label for="name">Имя *</label><input id="name" name="clientName" type="text" placeholder="Как к вам обращаться" minlength="2" maxlength="80" autocomplete="name" required></div>
+        <div class="field"><label for="phone">Телефон или мессенджер *</label><input id="phone" name="contact" type="text" inputmode="tel" placeholder="Телефон или @username" minlength="5" maxlength="60" autocomplete="tel" required></div>
+        <div class="field"><label for="service">Услуга *</label><select id="service" name="serviceId" required><option value="">Загрузка услуг…</option></select></div>
+        <div class="field"><label for="preferredDate">Предпочтительная дата (необязательно)</label><input id="preferredDate" name="preferredDate" type="date"></div>
+        <div class="field"><label for="preferredTime">Предпочтительное время (необязательно)</label><input id="preferredTime" name="preferredTime" type="time"></div>
+        <div class="field"><label for="text">Комментарий</label><textarea id="text" name="comment" maxlength="1000" placeholder="Размер, место, стиль, референсы или другие детали"></textarea></div>
+        <button class="btn" id="submit-request" type="submit" disabled>Отправить заявку</button>
+        <p class="note">* Обязательные поля. Учебная версия сохраняет данные только в этом браузере. Заявка не отправляется владельцу студии и не подтверждает запись.</p>
+        <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
+      </form>
+    </div></section>
+  </main>
+  <footer class="footer"><div class="container footer-inner"><span>© 2026 ASIDE PRO Tattoo Salon. Учебный проект.</span><a href="index.html">На главную</a></div></footer>
+  <script src="JS/slider.js"></script><script type="module" src="JS/booking.js"></script>
+</body>
+</html>
