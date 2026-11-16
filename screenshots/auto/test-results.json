@@ -1,7 +1,7 @@
 {
   "project": "ASIDE PRO Tattoo Salon",
   "baseUrl": "https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/",
-  "testedAt": "2026-11-16T17:49:04.950Z",
+  "testedAt": "2026-11-16T18:13:58.101Z",
   "environment": "GitHub-hosted Ubuntu runner, Playwright Chromium",
   "results": [
     {
@@ -76,56 +76,20 @@
       "successMessage": "Заявка №1 сохранена в локальной базе этого браузера. Это не подтверждение записи: для реального визита требуется отдельное согласование со студией."
     },
     {
+      "name": "IndexedDB stores and indexes are visible",
+      "status": "Passed",
+      "schemaText": "Хранилище\tКлюч\tИндексы\tПолей в записи\tЗаписей\nappointments\tid · autoIncrement\tbyCreatedAt → createdAt; byService → serviceId; byStatus → status\tclientName, contact, serviceId, comment, preferredDate, preferredTime, createdAt, status, id\t1\nservices\tid\tbyActive → active\tid, name, priceLabel, active, sortOrder\t4"
+    },
+    {
       "name": "Appointment persists and can be read",
       "status": "Passed",
-      "cardText": "Заявка №1 · Тестовый Клиент\n\nКонтакт: test@example.invalid\n\nУслуга: Татуировка\n\nСоздана: 16.11.2026, 17:48:53\n\nСтатус: new\n\nКомментарий: Автоматическая учебная проверка; запись не является реальной.\n\nУдалить заявку"
-    },
-    {
-      "name": "Delete test appointment",
-      "status": "Passed",
-      "remainingCards": 0
-    },
-    {
-      "name": "IndexedDB database exists",
-      "status": "Passed",
-      "databases": [
-        {
-          "name": "aside-pro-tattoo-db",
-          "version": 1
-        }
-      ]
-    },
-    {
-      "name": "Mobile layout has no horizontal overflow",
-      "status": "Passed",
-      "dimensions": {
-        "innerWidth": 390,
-        "documentWidth": 390,
-        "bodyWidth": 390
-      }
-    },
-    {
-      "name": "Mobile navigation toggles",
-      "status": "Passed",
-      "opened": true,
-      "closed": true
-    },
-    {
-      "name": "Browser console is clean",
-      "status": "Passed",
-      "consoleErrors": [],
-      "pageErrors": []
-    },
-    {
-      "name": "No failed network requests",
-      "status": "Passed",
-      "failedRequests": []
+      "cardText": "Заявка №1 · Тестовый Клиент\n\nКонтакт: test@example.invalid\n\nУслуга: Татуировка\n\nСоздана: 16.11.2026, 18:13:41\n\nСтатус: new\n\nКомментарий: Автоматическая проверка; запись не является реальной.\n\nУдалить запись"
     }
   ],
   "consoleErrors": [],
   "pageErrors": [],
   "failedRequests": [],
-  "fatalError": null,
+  "fatalError": "TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.",
   "screenshots": [
     "01-homepage.png",
     "02-tattoo-service.png",
@@ -139,6 +103,7 @@
     "10-mobile-homepage.png",
     "11-github-repository.png",
     "12-github-commit-history.png",
-    "13-github-actions-success.png"
+    "13-github-actions-success.png",
+    "14-indexeddb-schema.png"
   ]
 }
