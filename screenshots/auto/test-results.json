@@ -1,7 +1,7 @@
 {
   "project": "ASIDE PRO Tattoo Salon",
   "baseUrl": "https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/",
-  "testedAt": "2026-11-16T16:51:52.240Z",
+  "testedAt": "2026-11-16T17:02:50.362Z",
   "environment": "GitHub-hosted Ubuntu runner, Playwright Chromium",
   "results": [
     {
@@ -78,7 +78,7 @@
     {
       "name": "Appointment persists and can be read",
       "status": "Passed",
-      "cardText": "Заявка №1 · Тестовый Клиент\n\nКонтакт: test@example.invalid\n\nУслуга: Татуировка\n\nСоздана: 16.11.2026, 16:51:40\n\nСтатус: new\n\nКомментарий: Автоматическая учебная проверка; запись не является реальной.\n\nУдалить заявку"
+      "cardText": "Заявка №1 · Тестовый Клиент\n\nКонтакт: test@example.invalid\n\nУслуга: Татуировка\n\nСоздана: 16.11.2026, 17:02:38\n\nСтатус: new\n\nКомментарий: Автоматическая учебная проверка; запись не является реальной.\n\nУдалить заявку"
     },
     {
       "name": "Delete test appointment",
