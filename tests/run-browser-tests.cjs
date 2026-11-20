@@ -167,8 +167,6 @@ async function openPage(page, file) {
       await githubPage.waitForTimeout(1500);
       await githubPage.screenshot({ path: path.join(OUT, '13-github-actions-success.png'), fullPage: true });
     }
-    await githubPage.close();
-
     // Additional evidence for the database files stored in GitHub.
     const githubDatabasePages = [
       { path: '/tree/main/database', file: '18-github-database-folder.png', check: 'README.md', test: 'GitHub database folder is visible' },
@@ -191,6 +189,7 @@ async function openPage(page, file) {
     const diagramImages = await githubPage.locator('img').evaluateAll(images => images.map(img => ({ src: img.getAttribute('src'), width: img.naturalWidth, height: img.naturalHeight })));
     record('GitHub rendered ER diagram is visible', diagramImages.some(img => img.width > 300), { diagramImages });
     await githubPage.screenshot({ path: path.join(OUT, '22-github-er-diagram-image.png'), fullPage: true });
+    await githubPage.close();
 
     record('Browser console is clean', consoleErrors.length === 0 && pageErrors.length === 0, { consoleErrors, pageErrors });
     record('No failed network requests', failedRequests.length === 0, { failedRequests });
