@@ -1,7 +1,7 @@
 {
   "project": "ASIDE PRO Tattoo Salon",
   "baseUrl": "https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/",
-  "testedAt": "2026-11-20T21:05:48.992Z",
+  "testedAt": "2026-11-20T21:10:16.532Z",
   "environment": "GitHub-hosted Ubuntu runner, Playwright Chromium",
   "results": [
     {
@@ -83,7 +83,7 @@
     {
       "name": "Appointment persists and can be read",
       "status": "Passed",
-      "cardText": "Заявка №1 · Тестовый Клиент\n\nКонтакт: test@example.invalid\n\nУслуга: Татуировка\n\nСоздана: 20.11.2026, 21:05:11\n\nСтатус: new\n\nКомментарий: Автоматическая проверка; запись не является реальной.\n\nУдалить запись"
+      "cardText": "Заявка №1 · Тестовый Клиент\n\nКонтакт: test@example.invalid\n\nУслуга: Татуировка\n\nСоздана: 20.11.2026, 21:09:33\n\nСтатус: new\n\nКомментарий: Автоматическая проверка; запись не является реальной.\n\nУдалить запись"
     },
     {
       "name": "Delete test appointment",
@@ -123,6 +123,17 @@
     {
       "name": "GitHub IndexedDB source is visible",
       "status": "Passed"
+    },
+    {
+      "name": "GitHub IndexedDB commit details are available",
+      "status": "Passed",
+      "preview": "{\n  \"sha\": \"c12a2e0635785a79c4e8f440fd43462751c57d98\",\n  \"node_id\": \"C_kwDOVwi7HNoAKGMxMmEyZTA2MzU3ODVhNzljNGU4ZjQ0MGZkNDM0NjI3NTFjNTdkOTg\",\n  \"commit\": {\n    \"author\": {\n      \"name\": \"lenconcoira2007-spec\",\n      \"email\": \"lenconcoira2007@gmail.com\",\n      \"date\": \"2026-11-16T16:46:08Z\"\n    },\n    \"committer\": {\n      \"name\": \"lenconcoira2007-spec\",\n      \"email\": \"lenconcoira2007@gmail.com\",\n      \"date\": \"2026-11-16T16:46:08Z\"\n    },\n    \"message\": \"fix: await IndexedDB transaction completio"
+    },
+    {
+      "name": "GitHub database folder is visible",
+      "status": "Passed",
+      "url": "https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/tree/main/database",
+      "matchedText": "README.md"
     }
   ],
   "consoleErrors": [],
