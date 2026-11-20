@@ -76,7 +76,8 @@ async function openPage(page, file) {
       return element && !element.hidden && element.textContent.includes('сохранена');
     });
     const successMessage = await page.locator('#form-status').innerText();
-    await page.screenshot({ path: path.join(OUT, '07-test-appointment-saved.png'), fullPage: true });
+    await page.locator('#form-status').scrollIntoViewIfNeeded();
+    await page.screenshot({ path: path.join(OUT, '07-test-appointment-saved.png'), fullPage: false });
     record('Create appointment', successMessage.includes('сохранена'), { successMessage });
 
     // Check persistence in a separate page load, then delete the test row.
