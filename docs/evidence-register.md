@@ -1,1 +1,30 @@
-# Реестр автоматических скриншотов-подтверждений\n\nСнимки получены в реальном браузере Chromium на GitHub-hosted Ubuntu runner при проверке опубликованного сайта. Они не являются снимками локального Windows-экрана.\n\n| Файл | Путь | Происхождение |\n|---|---|---|\n| 01-homepage.png | screenshots/auto/01-homepage.png | Captured in GitHub-hosted Chromium |\n| 02-tattoo-service.png | screenshots/auto/02-tattoo-service.png | Captured in GitHub-hosted Chromium |\n| 03-piercing-service.png | screenshots/auto/03-piercing-service.png | Captured in GitHub-hosted Chromium |\n| 04-removal-service.png | screenshots/auto/04-removal-service.png | Captured in GitHub-hosted Chromium |\n| 05-feedback.png | screenshots/auto/05-feedback.png | Captured in GitHub-hosted Chromium |\n| 06-registration.png | screenshots/auto/06-registration.png | Captured in GitHub-hosted Chromium |\n| 07-test-appointment-saved.png | screenshots/auto/07-test-appointment-saved.png | Captured in GitHub-hosted Chromium |\n| 08-indexeddb-appointment-visible.png | screenshots/auto/08-indexeddb-appointment-visible.png | Captured in GitHub-hosted Chromium |\n| 09-indexeddb-after-delete.png | screenshots/auto/09-indexeddb-after-delete.png | Captured in GitHub-hosted Chromium |\n| 10-mobile-homepage.png | screenshots/auto/10-mobile-homepage.png | Captured in GitHub-hosted Chromium |\n| 11-github-repository.png | screenshots/auto/11-github-repository.png | Captured in GitHub-hosted Chromium |\n| 12-github-commit-history.png | screenshots/auto/12-github-commit-history.png | Captured in GitHub-hosted Chromium |\n| 13-github-actions-success.png | screenshots/auto/13-github-actions-success.png | Captured in GitHub-hosted Chromium |\n
+# Реестр скриншотов ASIDE PRO Tattoo Salon
+
+**Дата получения:** 16.11.2026  
+**Среда:** GitHub-hosted Ubuntu runner, Playwright Chromium.  
+**Количество:** 17 PNG-файлов.
+
+| Код | Файл | Что подтверждает |
+|---|---|---|
+| E-01 | `01-homepage.png` | Главная страница |
+| E-02 | `02-tattoo-service.png` | Страница татуировок |
+| E-03 | `03-piercing-service.png` | Страница пирсинга |
+| E-04 | `04-removal-service.png` | Страница лазерного удаления |
+| E-05 | `05-feedback.png` | Страница отзывов |
+| E-06 | `06-registration.png` | Форма заявки |
+| E-07 | `07-test-appointment-saved.png` | Успешное сохранение тестовой заявки |
+| E-08 | `08-indexeddb-appointment-visible.png` | Чтение заявки после перехода на страницу базы |
+| E-09 | `09-indexeddb-after-delete.png` | Список после удаления тестовой заявки |
+| E-10 | `10-mobile-homepage.png` | Главная при ширине 390 CSS px |
+| E-11 | `11-github-repository.png` | Репозиторий GitHub |
+| E-12 | `12-github-commit-history.png` | История коммитов |
+| E-13 | `13-github-actions-success.png` | Успешный workflow GitHub Pages |
+| E-14 | `14-indexeddb-schema.png` | Фактическая структура IndexedDB, ключи, индексы, поля и количество записей |
+| E-15 | `15-github-booking-form-code.png` | Исходный код обработки формы, JS/booking.js |
+| E-16 | `16-github-indexeddb-code.png` | Исходный код слоя IndexedDB, JS/booking-db.js |
+| E-17 | `17-github-indexeddb-commit-diff.png` | Diff коммита с исправлением ожидания завершения транзакций |
+
+## Происхождение
+Снимки созданы автоматизированным браузером Chromium. Это реальные снимки опубликованного сайта, GitHub, исходных файлов и commit patch, а не макеты и не сгенерированные изображения. Они не являются скриншотами локального рабочего стола Windows 10.
+
+JSON-отчёт: `screenshots/auto/test-results.json`. Сводка: `screenshots/auto/test-summary.md`.
