@@ -15,6 +15,7 @@ on:
       - 'images/**'
       - 'tests/database-demo.html'
       - 'tests/database-demo.js'
+      - 'tests/run-browser-tests.cjs'
       - '.github/workflows/pages.yml'
       - 'aside_pro_tattoo_salon_bundle.zip'
       - 'ASIDE_PRO_Technical_Specification_Final.docx'
