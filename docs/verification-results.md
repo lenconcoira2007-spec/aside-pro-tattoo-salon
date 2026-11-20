@@ -1,6 +1,6 @@
 # Результаты автоматизированной проверки ASIDE PRO Tattoo Salon
 
-**Дата:** 16 ноября 2026 г.  
+**Дата:** 20 ноября 2026 г.  
 **Среда:** GitHub-hosted Ubuntu runner, Playwright Chromium  
 **Опубликованный сайт:** https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/  
 **Результат:** **21 Passed / 0 Failed**  
@@ -37,8 +37,8 @@
 `consoleErrors = []`, `pageErrors = []`, `failedRequests = []`.
 
 ## Ссылки на запуски
-- Успешная публикация GitHub Pages: https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/actions/runs/43929276157
-- Успешный браузерный прогон: https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/actions/runs/43929366311
+- Успешная публикация GitHub Pages: https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/actions/runs/44777583955
+- Успешный браузерный прогон: https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/actions/runs/44777650421
 
 ## Границы проверки
 Проверка проведена в Chromium на GitHub-hosted Ubuntu runner. Она не подтверждает отдельную совместимость со всеми браузерами из ТЗ и не заменяет проверку на локальном Windows 10. Lighthouse/Web Vitals отдельно не измерялись. IndexedDB хранит записи в текущем браузере и на текущем origin; серверная обработка заявок не реализована.
