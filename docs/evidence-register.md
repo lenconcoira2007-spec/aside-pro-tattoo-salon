@@ -22,7 +22,7 @@
 | E-14 | `14-indexeddb-schema.png` | Фактическая структура IndexedDB, ключи, индексы, поля и количество записей |
 | E-15 | `15-github-booking-form-code.png` | Исходный код обработки формы, JS/booking.js |
 | E-16 | `16-github-indexeddb-code.png` | Исходный код слоя IndexedDB, JS/booking-db.js |
-| E-17 | `17-github-indexeddb-commit-diff.png` | Diff коммита с исправлением ожидания завершения транзакций |
+| E-17 | `17-github-indexeddb-commit-diff.png` | Ответ GitHub Commit API с метаданными и patch коммита об исправлении завершения транзакций |
 
 ## Происхождение
 Снимки созданы автоматизированным браузером Chromium. Это реальные снимки опубликованного сайта, GitHub, исходных файлов и commit patch, а не макеты и не сгенерированные изображения. Они не являются скриншотами локального рабочего стола Windows 10.
