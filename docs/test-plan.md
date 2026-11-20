@@ -1,6 +1,6 @@
 # План и фактические результаты проверки ASIDE PRO Tattoo Salon
 
-**Дата:** 16 ноября 2026 г.  
+**Дата:** 20 ноября 2026 г.  
 **Среда:** GitHub-hosted Ubuntu runner, Playwright Chromium  
 **Сайт:** https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/
 
