@@ -1,6 +1,6 @@
 # Реестр скриншотов ASIDE PRO Tattoo Salon
 
-**Дата получения:** 16.11.2026  
+**Дата получения:** 20.11.2026  
 **Среда:** GitHub-hosted Ubuntu runner, Playwright Chromium.  
 **Количество:** 17 PNG-файлов.
 
