@@ -1,7 +1,7 @@
 {
   "project": "ASIDE PRO Tattoo Salon",
   "baseUrl": "https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/",
-  "testedAt": "2026-11-20T16:53:13.866Z",
+  "testedAt": "2026-11-20T20:56:44.211Z",
   "environment": "GitHub-hosted Ubuntu runner, Playwright Chromium",
   "results": [
     {
@@ -83,7 +83,7 @@
     {
       "name": "Appointment persists and can be read",
       "status": "Passed",
-      "cardText": "Заявка №1 · Тестовый Клиент\n\nКонтакт: test@example.invalid\n\nУслуга: Татуировка\n\nСоздана: 20.11.2026, 16:53:04\n\nСтатус: new\n\nКомментарий: Автоматическая проверка; запись не является реальной.\n\nУдалить запись"
+      "cardText": "Заявка №1 · Тестовый Клиент\n\nКонтакт: test@example.invalid\n\nУслуга: Татуировка\n\nСоздана: 20.11.2026, 20:56:33\n\nСтатус: new\n\nКомментарий: Автоматическая проверка; запись не является реальной.\n\nУдалить запись"
     },
     {
       "name": "Delete test appointment",
@@ -127,23 +127,12 @@
     {
       "name": "GitHub IndexedDB commit patch is visible",
       "status": "Passed"
-    },
-    {
-      "name": "Browser console is clean",
-      "status": "Passed",
-      "consoleErrors": [],
-      "pageErrors": []
-    },
-    {
-      "name": "No failed network requests",
-      "status": "Passed",
-      "failedRequests": []
     }
   ],
   "consoleErrors": [],
   "pageErrors": [],
   "failedRequests": [],
-  "fatalError": null,
+  "fatalError": "Error: page.goto: Target page, context or browser has been closed",
   "screenshots": [
     "01-homepage.png",
     "02-tattoo-service.png",
