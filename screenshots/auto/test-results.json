@@ -1,7 +1,7 @@
 {
   "project": "ASIDE PRO Tattoo Salon",
   "baseUrl": "https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/",
-  "testedAt": "2026-11-20T21:02:01.505Z",
+  "testedAt": "2026-11-20T21:05:48.992Z",
   "environment": "GitHub-hosted Ubuntu runner, Playwright Chromium",
   "results": [
     {
@@ -83,7 +83,7 @@
     {
       "name": "Appointment persists and can be read",
       "status": "Passed",
-      "cardText": "Заявка №1 · Тестовый Клиент\n\nКонтакт: test@example.invalid\n\nУслуга: Татуировка\n\nСоздана: 20.11.2026, 21:01:47\n\nСтатус: new\n\nКомментарий: Автоматическая проверка; запись не является реальной.\n\nУдалить запись"
+      "cardText": "Заявка №1 · Тестовый Клиент\n\nКонтакт: test@example.invalid\n\nУслуга: Татуировка\n\nСоздана: 20.11.2026, 21:05:11\n\nСтатус: new\n\nКомментарий: Автоматическая проверка; запись не является реальной.\n\nУдалить запись"
     },
     {
       "name": "Delete test appointment",
@@ -123,108 +123,12 @@
     {
       "name": "GitHub IndexedDB source is visible",
       "status": "Passed"
-    },
-    {
-      "name": "GitHub IndexedDB commit patch is visible",
-      "status": "Passed"
-    },
-    {
-      "name": "GitHub database folder is visible",
-      "status": "Passed",
-      "url": "https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/tree/main/database",
-      "matchedText": "README.md"
-    },
-    {
-      "name": "GitHub database README is visible",
-      "status": "Passed",
-      "url": "https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/blob/main/database/README.md",
-      "matchedText": "aside-pro-tattoo-db"
-    },
-    {
-      "name": "GitHub database design document is visible",
-      "status": "Passed",
-      "url": "https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/blob/main/docs/database-design.md",
-      "matchedText": "byCreatedAt"
-    },
-    {
-      "name": "GitHub ER diagram source is visible",
-      "status": "Passed",
-      "url": "https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salonhttps://raw.githubusercontent.com/lenconcoira2007-spec/aside-pro-tattoo-salon/main/docs/er-diagram.mmd",
-      "matchedText": "APPOINTMENTS"
-    },
-    {
-      "name": "GitHub requirements traceability matrix is visible",
-      "status": "Passed",
-      "url": "https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/blob/main/docs/requirements-traceability.md",
-      "matchedText": "JS/booking-db.js"
-    },
-    {
-      "name": "GitHub rendered ER diagram is visible",
-      "status": "Passed",
-      "diagramImages": [
-        {
-          "src": "https://github.githubassets.com/assets/platform-4ce65ae0bf273ce2.png",
-          "width": 480,
-          "height": 300
-        },
-        {
-          "src": "https://github.githubassets.com/assets/platform-dark-ac89fbf373737ed3.png",
-          "width": 480,
-          "height": 300
-        },
-        {
-          "src": "https://github.githubassets.com/assets/copilot-e2b89335a66dba00.png",
-          "width": 480,
-          "height": 300
-        },
-        {
-          "src": "https://github.githubassets.com/assets/copilot-dark-2b28403b6080e898.png",
-          "width": 480,
-          "height": 300
-        },
-        {
-          "src": "https://github.githubassets.com/assets/changelog-fd687bff072883b0.png",
-          "width": 480,
-          "height": 300
-        },
-        {
-          "src": "https://github.githubassets.com/assets/changelog-dark-b1c25ae971bd641b.png",
-          "width": 480,
-          "height": 300
-        },
-        {
-          "src": "https://github.githubassets.com/assets/universe-a98cd54821b27569.png",
-          "width": 480,
-          "height": 300
-        },
-        {
-          "src": "https://github.githubassets.com/assets/universe-a98cd54821b27569.png",
-          "width": 480,
-          "height": 300
-        },
-        {
-          "src": "https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/blob/main/docs/er-diagram.png?raw=true",
-          "width": 0,
-          "height": 0
-        }
-      ]
-    },
-    {
-      "name": "Browser console is clean",
-      "status": "Passed",
-      "consoleErrors": [],
-      "pageErrors": []
-    },
-    {
-      "name": "No failed network requests",
-      "status": "Passed",
-      "failedRequests": []
     }
   ],
   "consoleErrors": [],
   "pageErrors": [],
   "failedRequests": [],
-  "fatalError": null,
+  "fatalError": "TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.",
   "screenshots": [
     "01-homepage.png",
     "02-tattoo-service.png",
