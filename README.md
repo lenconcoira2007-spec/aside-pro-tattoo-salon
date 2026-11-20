@@ -5,8 +5,8 @@
 ## Ссылки
 - Сайт: https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/
 - GitHub: https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon
-- Успешный deployment: https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/actions/runs/43929276157
-- Успешные браузерные проверки: https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/actions/runs/43929366311
+- Успешный deployment: https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/actions/runs/44777583955
+- Успешные браузерные проверки: https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/actions/runs/44777650421
 
 ## Возможности
 - Страницы услуг: татуировки, пирсинг и лазерное удаление.
@@ -33,7 +33,7 @@
 **Ограничение:** IndexedDB хранит записи только в текущем браузере, профиле и на текущем origin. Заявки не отправляются сотрудникам студии и не синхронизируются между устройствами. Для централизованной обработки требуется серверная БД и API.
 
 ## Проверка
-16 ноября 2026 г. автоматический сценарий Playwright Chromium выполнил **21 проверку: 21 Passed / 0 Failed**. Проверены страницы, изображения, форма, IndexedDB, структура хранилищ, создание/чтение/удаление заявки, адаптивность, мобильная навигация, исходники и diff коммита, ошибки консоли и сети.
+20 ноября 2026 г. автоматический сценарий Playwright Chromium выполнил **21 проверку: 21 Passed / 0 Failed**. Проверены страницы, изображения, форма, IndexedDB, структура хранилищ, создание/чтение/удаление заявки, адаптивность, мобильная навигация, исходники и diff коммита, ошибки консоли и сети.
 
 Подробности: `docs/verification-results.md`. Реестр снимков: `docs/evidence-register.md`.
 
