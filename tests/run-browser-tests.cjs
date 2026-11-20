@@ -156,7 +156,7 @@ async function openPage(page, file) {
     record('GitHub IndexedDB source is visible', databaseSourceText.includes('openBookingDatabase'));
     await githubPage.screenshot({ path: path.join(OUT, '16-github-indexeddb-code.png'), fullPage: false });
 
-    await githubPage.goto(REPO + '/commit/c12a2e0635785a79c4e8f440fd43462751c57d98.patch', { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await githubPage.goto('https://api.github.com/repos/lenconcoira2007-spec/aside-pro-tattoo-salon/commits/c12a2e0635785a79c4e8f440fd43462751c57d98', { waitUntil: 'domcontentloaded', timeout: 60000 });
     await githubPage.waitForFunction(() => document.body.innerText.includes('transactionResult'), { timeout: 30000 });
     const commitPatchText = await githubPage.locator('body').innerText();
     record('GitHub IndexedDB commit patch is visible', commitPatchText.includes('transactionResult'));
