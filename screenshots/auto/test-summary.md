@@ -1,10 +1,10 @@
 # Automated browser verification
 
 - Project: ASIDE PRO Tattoo Salon
-- Date: 2026-11-16T18:30:11.522Z
+- Date: 2026-11-20T16:49:48.761Z
 - Environment: GitHub-hosted Ubuntu runner, Playwright Chromium
 - Published URL: https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/
-- Passed: 21
+- Passed: 18
 - Failed: 0
 
 - [Passed] HTTP index.html
@@ -25,8 +25,5 @@
 - [Passed] Mobile navigation toggles
 - [Passed] GitHub booking form source is visible
 - [Passed] GitHub IndexedDB source is visible
-- [Passed] GitHub IndexedDB commit patch is visible
-- [Passed] Browser console is clean
-- [Passed] No failed network requests
 
 Screenshots are stored in `screenshots/auto/`. Only actual browser captures are included.
