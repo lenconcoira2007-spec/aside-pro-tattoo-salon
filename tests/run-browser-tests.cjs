@@ -185,10 +185,10 @@ async function openPage(page, file) {
       await githubPage.screenshot({ path: path.join(OUT, item.file), fullPage: true });
     }
 
-    await githubPage.goto(REPO + '/blob/main/docs/er-diagram.png', { waitUntil: 'domcontentloaded', timeout: 60000 });
-    await githubPage.waitForFunction(() => Array.from(document.querySelectorAll('img')).some(image => image.complete && image.naturalWidth > 300), { timeout: 30000 });
+    await githubPage.goto('https://raw.githubusercontent.com/lenconcoira2007-spec/aside-pro-tattoo-salon/main/docs/er-diagram.png', { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await githubPage.waitForFunction(() => Array.from(document.querySelectorAll('img')).some(image => image.complete && image.naturalWidth > 500), { timeout: 30000 });
     const diagramImages = await githubPage.locator('img').evaluateAll(images => images.map(img => ({ src: img.getAttribute('src'), width: img.naturalWidth, height: img.naturalHeight })));
-    record('GitHub rendered ER diagram is visible', diagramImages.some(img => img.width > 300), { diagramImages });
+    record('GitHub rendered ER diagram is visible', diagramImages.some(img => img.width > 500), { diagramImages });
     await githubPage.screenshot({ path: path.join(OUT, '22-github-er-diagram-image.png'), fullPage: true });
     await githubPage.close();
 
