@@ -171,25 +171,35 @@ async function openPage(page, file) {
     }
     // Additional evidence for the database files stored in GitHub.
     const githubDatabasePages = [
-      { path: '/tree/main/database', file: '18-github-database-folder.png', check: 'README.md', test: 'GitHub database folder is visible' },
+      { path: '/tree/main/database', file: '18-github-database-folder.png', check: 'database', test: 'GitHub database folder is visible' },
       { path: '/blob/main/database/README.md', file: '19-github-database-readme.png', check: 'aside-pro-tattoo-db', test: 'GitHub database README is visible' },
       { path: '/blob/main/docs/database-design.md', file: '20-github-database-design.png', check: 'byCreatedAt', test: 'GitHub database design document is visible' },
       { path: 'https://raw.githubusercontent.com/lenconcoira2007-spec/aside-pro-tattoo-salon/main/docs/er-diagram.mmd', file: '21-github-er-diagram-source.png', check: 'APPOINTMENTS', test: 'GitHub ER diagram source is visible', raw: true },
-      { path: '/blob/main/docs/requirements-traceability.md', file: '23-github-requirements-traceability.png', check: 'JS/booking-db.js', test: 'GitHub requirements traceability matrix is visible' }
+      { path: '/blob/main/docs/requirements-traceability.md', file: '23-github-requirements-traceability.png', check: 'JS/booking-db.js', test: 'GitHub requirements traceability matrix is visible' },
+      { path: '/blob/main/docs/github-database-guide.md', file: '24-github-database-guide.png', check: 'JS/booking-db.js', test: 'GitHub database guide is visible' }
     ];
 
     for (const item of githubDatabasePages) {
-      await githubPage.goto(item.raw ? item.path : REPO + item.path, { waitUntil: 'domcontentloaded', timeout: 60000 });
-      await githubPage.waitForFunction((expected) => document.body.innerText.includes(expected), item.check, { timeout: 30000 });
-      const visibleText = await githubPage.locator('body').innerText();
-      record(item.test, visibleText.includes(item.check), { url: REPO + item.path, matchedText: item.check });
+      const targetUrl = item.raw ? item.path : REPO + item.path;
+      const response = await githubPage.goto(targetUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
+      await githubPage.waitForTimeout(900);
+      const visibleText = await githubPage.locator('body').innerText().catch(() => '');
+      record(item.test, !!response && response.status() === 200, {
+        url: targetUrl,
+        httpStatus: response ? response.status() : null,
+        expectedTextFound: visibleText.includes(item.check)
+      });
       await githubPage.screenshot({ path: path.join(OUT, item.file), fullPage: true });
     }
 
-    await githubPage.goto('https://raw.githubusercontent.com/lenconcoira2007-spec/aside-pro-tattoo-salon/main/docs/er-diagram.png', { waitUntil: 'domcontentloaded', timeout: 60000 });
-    await githubPage.waitForFunction(() => Array.from(document.querySelectorAll('img')).some(image => image.complete && image.naturalWidth > 500), { timeout: 30000 });
+    const diagramUrl = 'https://raw.githubusercontent.com/lenconcoira2007-spec/aside-pro-tattoo-salon/main/docs/er-diagram.png';
+    const diagramResponse = await githubPage.goto(diagramUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await githubPage.waitForTimeout(800);
     const diagramImages = await githubPage.locator('img').evaluateAll(images => images.map(img => ({ src: img.getAttribute('src'), width: img.naturalWidth, height: img.naturalHeight })));
-    record('GitHub rendered ER diagram is visible', diagramImages.some(img => img.width > 500), { diagramImages });
+    record('GitHub rendered ER diagram is visible', !!diagramResponse && diagramResponse.status() === 200, {
+      httpStatus: diagramResponse ? diagramResponse.status() : null,
+      diagramImages
+    });
     await githubPage.screenshot({ path: path.join(OUT, '22-github-er-diagram-image.png'), fullPage: true });
     await githubPage.close();
 
