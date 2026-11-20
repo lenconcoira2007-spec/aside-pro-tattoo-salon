@@ -1,3 +1,4 @@
+// Automated checks and real GitHub evidence screenshots for ASIDE PRO Tattoo Salon.
 const { chromium } = require('playwright');
 const fs = require('node:fs');
 const path = require('node:path');
