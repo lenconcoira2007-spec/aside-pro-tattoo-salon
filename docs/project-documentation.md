@@ -47,14 +47,14 @@ ASIDE PRO Tattoo Salon — адаптивный веб-сайт тату-сту�
 Репозиторий: https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon  
 Опубликованный сайт: https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/
 
-Успешный deployment GitHub Pages: https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/actions/runs/43929276157
+Успешный deployment GitHub Pages: https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/actions/runs/44777583955
 
 История изменений фиксирует реализацию формы, создание слоя IndexedDB, исправление ожидания завершения транзакций, создание страницы просмотра структуры BD и автоматических тестов.
 
 ## 8. Результаты тестирования
-16 ноября 2026 г. Playwright Chromium на GitHub-hosted Ubuntu runner выполнил **21 проверку: 21 Passed / 0 Failed**. Проверены шесть основных страниц, загрузка изображений, четыре услуги из IndexedDB, валидация формы, создание заявки, фактическая структура двух хранилищ и индексов, чтение и удаление записи, наличие базы, адаптивность при 390 CSS px, мобильное меню, доступность исходного кода и diff коммита, ошибки консоли и сети.
+20 ноября 2026 г. Playwright Chromium на GitHub-hosted Ubuntu runner выполнил **21 проверку: 21 Passed / 0 Failed**. Проверены шесть основных страниц, загрузка изображений, четыре услуги из IndexedDB, валидация формы, создание заявки, фактическая структура двух хранилищ и индексов, чтение и удаление записи, наличие базы, адаптивность при 390 CSS px, мобильное меню, доступность исходного кода и diff коммита, ошибки консоли и сети.
 
-Успешный прогон: https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/actions/runs/43929366311  
+Успешный прогон: https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/actions/runs/44777650421  
 Детальный журнал: `docs/verification-results.md`.
 
 ## 9. Скриншоты и доказательства
