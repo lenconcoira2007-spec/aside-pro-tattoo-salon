@@ -1,29 +1,38 @@
-# План и фактические результаты тестирования ASIDE PRO Tattoo Salon
+# План и фактические результаты проверки ASIDE PRO Tattoo Salon
 
-## Среда
-Дата: 16.11.2026; GitHub-hosted Ubuntu runner; Playwright Chromium; публичный сайт https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/.
+**Дата:** 16 ноября 2026 г.  
+**Среда:** GitHub-hosted Ubuntu runner, Playwright Chromium  
+**Сайт:** https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/
 
-| ID | Сценарий | Ожидаемый результат | Итог |
+| ID | Проверка | Ожидаемый результат | Факт |
 |---|---|---|---|
-| TC-01 | Открыть главную страницу | HTTP 200 | Passed |
-| TC-02 | Проверить изображения главной | Все изображения загружены | Passed |
-| TC-03 | Открыть tattoo.html | HTTP 200 | Passed |
-| TC-04 | Открыть piercing.html | HTTP 200 | Passed |
-| TC-05 | Открыть removing.html | HTTP 200 | Passed |
-| TC-06 | Открыть feedback.html | HTTP 200 | Passed |
-| TC-07 | Открыть registration.html | HTTP 200 | Passed |
-| TC-08 | Загрузить услуги | IndexedDB возвращает 4 услуги | Passed |
-| TC-09 | Отправить пустую форму | Обязательные поля блокируют отправку | Passed |
-| TC-10 | Создать тестовую заявку | Запись сохраняется, показывается сообщение | Passed |
-| TC-11 | Перейти к странице демонстрации BD | Запись видна после перехода | Passed |
-| TC-12 | Удалить тестовую заявку | Список становится пустым | Passed |
-| TC-13 | Проверить наличие базы | aside-pro-tattoo-db, версия 1 | Passed |
-| TC-14 | Проверить мобильный экран 390 px | Нет горизонтальной прокрутки | Passed |
-| TC-15 | Открыть/закрыть мобильное меню | Меню переключается | Passed |
-| TC-16 | Проверить консоль и JS | Ошибки отсутствуют | Passed |
-| TC-17 | Проверить сетевые запросы | Неуспешных запросов нет | Passed |
+| TC-01 | HTTP index.html | HTTP 200 | Passed |
+| TC-02 | Homepage images load | Ошибка загрузки изображений отсутствует | Passed |
+| TC-03 | HTTP tattoo.html | HTTP 200 | Passed |
+| TC-04 | HTTP piercing.html | HTTP 200 | Passed |
+| TC-05 | HTTP removing.html | HTTP 200 | Passed |
+| TC-06 | HTTP feedback.html | HTTP 200 | Passed |
+| TC-07 | HTTP registration.html | HTTP 200 | Passed |
+| TC-08 | Services loaded from IndexedDB | Четыре услуги доступны в списке | Passed |
+| TC-09 | Required-field validation | Пустая форма заблокирована | Passed |
+| TC-10 | Create appointment | Сообщение о локальном сохранении | Passed |
+| TC-11 | IndexedDB stores and indexes are visible | Реальная структура IndexedDB читается из браузера | Passed |
+| TC-12 | Appointment persists and can be read | Сохранённая запись прочитана | Passed |
+| TC-13 | Delete test appointment | Запись удалена | Passed |
+| TC-14 | IndexedDB database exists | БД открывается | Passed |
+| TC-15 | Mobile layout has no horizontal overflow | Нет горизонтальной прокрутки | Passed |
+| TC-16 | Mobile navigation toggles | Переключение меню работает | Passed |
+| TC-17 | GitHub booking form source is visible | Код доступен на GitHub | Passed |
+| TC-18 | GitHub IndexedDB source is visible | Код доступен на GitHub | Passed |
+| TC-19 | GitHub IndexedDB commit patch is visible | Изменения транзакций видны в diff | Passed |
+| TC-20 | Browser console is clean | Ошибок нет | Passed |
+| TC-21 | No failed network requests | Ошибок нет | Passed |
 
-**Итог: 17 Passed / 0 Failed.** Использованы вымышленные данные: «Тестовый Клиент», test@example.invalid, услуга «Татуировка». После проверки запись удалена; остаток — 0.
+## Итог
+**21 проверка пройдена, 0 не пройдены.** Полный журнал находится в `verification-results.md`, JSON-отчёт — в `screenshots/auto/test-results.json`.
+
+## Тестовые данные
+Использованы вымышленные значения: имя «Тестовый Клиент», контакт `test@example.invalid`, услуга «Татуировка». Заявка была создана, прочитана на отдельной странице и удалена. После удаления список пуст.
 
 ## Границы проверки
-Проверка выполнена в Chromium на GitHub-hosted Ubuntu runner. Она не подтверждает совместимость со всеми браузерами из ТЗ и не заменяет тест на локальном Windows 10. Lighthouse/Web Vitals отдельно не измерялись.
+Проверка выполнена в Chromium на GitHub-hosted Ubuntu runner. Совместимость со всеми браузерами из ТЗ и отдельная проверка на локальном Windows 10 не подтверждались. Lighthouse/Web Vitals отдельно не измерялись. IndexedDB хранит данные локально в текущем браузере и на текущем origin.
