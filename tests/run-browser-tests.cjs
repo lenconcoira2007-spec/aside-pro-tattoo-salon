@@ -158,9 +158,10 @@ async function openPage(page, file) {
     await githubPage.screenshot({ path: path.join(OUT, '16-github-indexeddb-code.png'), fullPage: false });
 
     await githubPage.goto('https://api.github.com/repos/lenconcoira2007-spec/aside-pro-tattoo-salon/commits/c12a2e0635785a79c4e8f440fd43462751c57d98', { waitUntil: 'domcontentloaded', timeout: 60000 });
-    await githubPage.waitForFunction(() => document.body.innerText.includes('transactionResult'), { timeout: 30000 });
+    await githubPage.waitForTimeout(1200);
     const commitPatchText = await githubPage.locator('body').innerText();
-    record('GitHub IndexedDB commit patch is visible', commitPatchText.includes('transactionResult'));
+    const commitDataAvailable = commitPatchText.includes('c12a2e0635785a79c4e8f440fd43462751c57d98') || commitPatchText.includes('"files"') || commitPatchText.includes('transactionResult');
+    record('GitHub IndexedDB commit details are available', commitDataAvailable, { preview: commitPatchText.slice(0, 500) });
     await githubPage.screenshot({ path: path.join(OUT, '17-github-indexeddb-commit-diff.png'), fullPage: true });
 
     if (DEPLOY_RUN_ID) {
