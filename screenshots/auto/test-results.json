@@ -1,7 +1,7 @@
 {
   "project": "ASIDE PRO Tattoo Salon",
   "baseUrl": "https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/",
-  "testedAt": "2026-11-20T20:56:44.211Z",
+  "testedAt": "2026-11-20T20:59:53.359Z",
   "environment": "GitHub-hosted Ubuntu runner, Playwright Chromium",
   "results": [
     {
@@ -83,7 +83,7 @@
     {
       "name": "Appointment persists and can be read",
       "status": "Passed",
-      "cardText": "Заявка №1 · Тестовый Клиент\n\nКонтакт: test@example.invalid\n\nУслуга: Татуировка\n\nСоздана: 20.11.2026, 20:56:33\n\nСтатус: new\n\nКомментарий: Автоматическая проверка; запись не является реальной.\n\nУдалить запись"
+      "cardText": "Заявка №1 · Тестовый Клиент\n\nКонтакт: test@example.invalid\n\nУслуга: Татуировка\n\nСоздана: 20.11.2026, 20:59:09\n\nСтатус: new\n\nКомментарий: Автоматическая проверка; запись не является реальной.\n\nУдалить запись"
     },
     {
       "name": "Delete test appointment",
@@ -127,12 +127,30 @@
     {
       "name": "GitHub IndexedDB commit patch is visible",
       "status": "Passed"
+    },
+    {
+      "name": "GitHub database folder is visible",
+      "status": "Passed",
+      "url": "https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/tree/main/database",
+      "matchedText": "README.md"
+    },
+    {
+      "name": "GitHub database README is visible",
+      "status": "Passed",
+      "url": "https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/blob/main/database/README.md",
+      "matchedText": "aside-pro-tattoo-db"
+    },
+    {
+      "name": "GitHub database design document is visible",
+      "status": "Passed",
+      "url": "https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/blob/main/docs/database-design.md",
+      "matchedText": "byCreatedAt"
     }
   ],
   "consoleErrors": [],
   "pageErrors": [],
   "failedRequests": [],
-  "fatalError": "Error: page.goto: Target page, context or browser has been closed",
+  "fatalError": "TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.",
   "screenshots": [
     "01-homepage.png",
     "02-tattoo-service.png",
@@ -150,6 +168,9 @@
     "14-indexeddb-schema.png",
     "15-github-booking-form-code.png",
     "16-github-indexeddb-code.png",
-    "17-github-indexeddb-commit-diff.png"
+    "17-github-indexeddb-commit-diff.png",
+    "18-github-database-folder.png",
+    "19-github-database-readme.png",
+    "20-github-database-design.png"
   ]
 }
