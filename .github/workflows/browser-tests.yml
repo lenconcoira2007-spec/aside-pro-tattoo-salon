@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   browser-tests:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    # Run evidence checks after every completed Pages workflow; the current public site remains available if a redeploy is temporarily rejected.
     runs-on: ubuntu-latest
     steps:
       - name: Check out current main
