@@ -1,7 +1,7 @@
 {
   "project": "ASIDE PRO Tattoo Salon",
   "baseUrl": "https://lenconcoira2007-spec.github.io/aside-pro-tattoo-salon/",
-  "testedAt": "2026-11-20T21:10:16.532Z",
+  "testedAt": "2026-11-20T21:14:53.534Z",
   "environment": "GitHub-hosted Ubuntu runner, Playwright Chromium",
   "results": [
     {
@@ -83,7 +83,7 @@
     {
       "name": "Appointment persists and can be read",
       "status": "Passed",
-      "cardText": "Заявка №1 · Тестовый Клиент\n\nКонтакт: test@example.invalid\n\nУслуга: Татуировка\n\nСоздана: 20.11.2026, 21:09:33\n\nСтатус: new\n\nКомментарий: Автоматическая проверка; запись не является реальной.\n\nУдалить запись"
+      "cardText": "Заявка №1 · Тестовый Клиент\n\nКонтакт: test@example.invalid\n\nУслуга: Татуировка\n\nСоздана: 20.11.2026, 21:14:33\n\nСтатус: new\n\nКомментарий: Автоматическая проверка; запись не является реальной.\n\nУдалить запись"
     },
     {
       "name": "Delete test appointment",
@@ -133,13 +133,72 @@
       "name": "GitHub database folder is visible",
       "status": "Passed",
       "url": "https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/tree/main/database",
-      "matchedText": "README.md"
+      "httpStatus": 200,
+      "expectedTextFound": true
+    },
+    {
+      "name": "GitHub database README is visible",
+      "status": "Passed",
+      "url": "https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/blob/main/database/README.md",
+      "httpStatus": 200,
+      "expectedTextFound": true
+    },
+    {
+      "name": "GitHub database design document is visible",
+      "status": "Passed",
+      "url": "https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/blob/main/docs/database-design.md",
+      "httpStatus": 200,
+      "expectedTextFound": true
+    },
+    {
+      "name": "GitHub ER diagram source is visible",
+      "status": "Passed",
+      "url": "https://raw.githubusercontent.com/lenconcoira2007-spec/aside-pro-tattoo-salon/main/docs/er-diagram.mmd",
+      "httpStatus": 200,
+      "expectedTextFound": true
+    },
+    {
+      "name": "GitHub requirements traceability matrix is visible",
+      "status": "Passed",
+      "url": "https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/blob/main/docs/requirements-traceability.md",
+      "httpStatus": 200,
+      "expectedTextFound": true
+    },
+    {
+      "name": "GitHub database guide is visible",
+      "status": "Passed",
+      "url": "https://github.com/lenconcoira2007-spec/aside-pro-tattoo-salon/blob/main/docs/github-database-guide.md",
+      "httpStatus": 200,
+      "expectedTextFound": true
+    },
+    {
+      "name": "GitHub rendered ER diagram is visible",
+      "status": "Passed",
+      "httpStatus": 200,
+      "diagramImages": [
+        {
+          "src": "https://raw.githubusercontent.com/lenconcoira2007-spec/aside-pro-tattoo-salon/main/docs/er-diagram.png",
+          "width": 1525,
+          "height": 890
+        }
+      ]
+    },
+    {
+      "name": "Browser console is clean",
+      "status": "Passed",
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "name": "No failed network requests",
+      "status": "Passed",
+      "failedRequests": []
     }
   ],
   "consoleErrors": [],
   "pageErrors": [],
   "failedRequests": [],
-  "fatalError": "TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.",
+  "fatalError": null,
   "screenshots": [
     "01-homepage.png",
     "02-tattoo-service.png",
@@ -163,6 +222,7 @@
     "20-github-database-design.png",
     "21-github-er-diagram-source.png",
     "22-github-er-diagram-image.png",
-    "23-github-requirements-traceability.png"
+    "23-github-requirements-traceability.png",
+    "24-github-database-guide.png"
   ]
 }
